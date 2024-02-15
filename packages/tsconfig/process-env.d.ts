@@ -31,7 +31,7 @@ declare namespace NodeJS {
     NEXT_PRIVATE_SIGNING_LOCAL_FILE_CONTENTS?: string;
     NEXT_PRIVATE_SIGNING_LOCAL_FILE_ENCODING?: string;
 
-    NEXT_PRIVATE_SMTP_TRANSPORT?: 'mailchannels' | 'resend' | 'smtp-auth' | 'smtp-api' | 'email';
+    NEXT_PRIVATE_SMTP_TRANSPORT?: 'mailchannels' | 'resend' | 'smtp-auth' | 'smtp-api' | 'gmail';
 
     NEXT_PRIVATE_RESEND_API_KEY?: string;
 
