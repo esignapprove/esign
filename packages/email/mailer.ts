@@ -23,6 +23,23 @@ const getTransport = () => {
       }),
     );
   }
+  
+  // Check for Gmail Transport
+  if (transport === 'gmail') {
+    if (!process.env.NEXT_PRIVATE_SMTP_USERNAME || !process.env.NEXT_PRIVATE_SMTP_PASSWORD) {
+      throw new Error(
+        'Gmail transport requires NEXT_PRIVATE_SMTP_USERNAME and NEXT_PRIVATE_SMTP_PASSWORD',
+      );
+    }
+
+    return createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.NEXT_PRIVATE_SMTP_USERNAME,
+        pass: process.env.NEXT_PRIVATE_SMTP_PASSWORD,
+      },
+    });
+  }
 
   if (transport === 'smtp-api') {
     if (!process.env.NEXT_PRIVATE_SMTP_HOST || !process.env.NEXT_PRIVATE_SMTP_APIKEY) {
